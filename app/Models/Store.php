@@ -25,6 +25,12 @@ class Store extends Model
     // Relationship one store owned by one user
     public function user()
     {
-        return $this->belongTo(User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    // Store can have one store balance relationship
+    public function storeBalance()
+    {
+        return $this->hasOne(StoreBalance::class);
     }
 }
