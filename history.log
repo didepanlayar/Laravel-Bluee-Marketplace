@@ -48,3 +48,6 @@ Output: "redis-works"
 
 # Database migrate
 - php artisan migrate
+
+# Models and Migration: Store
+- php artisan make:model Store -m
