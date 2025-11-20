@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('store_balances', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('store_id');
-            $table->foreign('store_id')->reference('id')->on('store')->onDelete('cascade');
+            $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
             $table->decimal('balance', 26, 2);
             $table->timestamps();
         });

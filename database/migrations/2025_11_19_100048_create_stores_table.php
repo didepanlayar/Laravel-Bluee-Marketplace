@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('stores', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('user_id');
-            $table->foreign('user_id')->reference('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('name');
             $table->string('logo');
             $table->text('about');
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('address');
             $table->string('postal_code');
-            $table->boolean('is_verified')->default('false');
+            $table->boolean('is_verified')->default(false);
             $table->timestamps();
         });
     }

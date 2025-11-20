@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('buyer_id');
-            $table->foreign('buyer_id')->reference('id')->on('buyers')->onDelete('cascade');
+            $table->foreign('buyer_id')->references('id')->on('buyers')->onDelete('cascade');
             $table->uuid('store_id');
-            $table->foreign('store_id')->reference('id')->on('store')->onDelete('cascade');
+            $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
             $table->string('address_id');
             $table->text('address');
             $table->string('city');

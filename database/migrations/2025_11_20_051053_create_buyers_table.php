@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('buyers', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('user_id');
-            $table->foreign('user_id')->reference('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('profile_picture')->nullable();
             $table->string('phone_number')->nullable();
             $table->timestamps();

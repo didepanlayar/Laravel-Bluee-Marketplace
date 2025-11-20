@@ -78,3 +78,9 @@ Output: "redis-works"
 
 # Models and Migration: TransactionDetail
 - php artisan make:model TransactionDetail -m
+
+# Models and Migration: ProductReview
+- php artisan make:model ProductReview -m
+
+# Fix Models and Migration typo then fresh migrate
+- php artisan migrate:fresh
