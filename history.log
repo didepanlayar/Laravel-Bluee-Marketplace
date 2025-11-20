@@ -63,3 +63,6 @@ Output: "redis-works"
 
 # Models and Migration: Buyer
 - php artisan make:model Buyer -m
+
+# Models and Migration: ProductCategory
+- php artisan make:model ProductCategory -m
