@@ -69,3 +69,6 @@ Output: "redis-works"
 
 # Models and Migration: Product
 - php artisan make:model Product -m
+
+# Models and Migration: ProductImage
+- php artisan make:model ProductImage -m
