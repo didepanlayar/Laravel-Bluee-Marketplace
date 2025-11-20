@@ -23,7 +23,7 @@ class Product extends Model
     ];
 
     protected $casts = [
-        'price' => 'decimal'
+        'price' => 'decimal:2'
     ];
 
     public function store()
@@ -39,5 +39,10 @@ class Product extends Model
     public function productImages()
     {
         return $this->belongsTo(ProductImage::class);
+    }
+
+    public function transactionDetails()
+    {
+        return $this->hasMany(TransactionDetail::class);
     }
 }

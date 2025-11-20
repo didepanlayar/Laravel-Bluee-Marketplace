@@ -26,9 +26,9 @@ class Transaction extends Model
     ];
 
     protected $casts = [
-        'shipping_cost',
-        'taxt',
-        'grand_total'
+        'shipping_cost' => 'decimal:2',
+        'taxt' => 'decimal:2',
+        'grand_total' => 'decimal:2'
     ];
 
     public function buyer()
@@ -39,5 +39,10 @@ class Transaction extends Model
     public function store()
     {
         return $this->belongsTo(Store::class);
+    }
+
+    public function transactionDetails()
+    {
+        return $this->hasMany(TransactionDetail::class);
     }
 }
