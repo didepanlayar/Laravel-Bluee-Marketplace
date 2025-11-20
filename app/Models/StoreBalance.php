@@ -23,4 +23,9 @@ class StoreBalance extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function storeBalanceHistories()
+    {
+        return $this->hasMany(StoreBalanceHistory::class);
+    }
 }

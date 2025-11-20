@@ -54,3 +54,6 @@ Output: "redis-works"
 
 # Models and Migration: StoreBalance
 - php artisan make:model StoreBalance -m
+
+# Models and Migration: StoreBalanceHistory
+- php artisan make:model StoreBalanceHistory -m
