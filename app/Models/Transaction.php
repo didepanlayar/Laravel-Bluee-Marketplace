@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Models;
+
+use App\Traits\UUID;
+use Illuminate\Database\Eloquent\Model;
+
+class Transaction extends Model
+{
+    use UUID;
+
+    protected $fillable = [
+        'code',
+        'buyer_id',
+        'store_id',
+        'address_id',
+        'address',
+        'city',
+        'postal_code',
+        'shipping',
+        'shipping_type',
+        'shipping_cost',
+        'tax',
+        'grand_total',
+        'payment_status'
+    ];
+
+    protected $casts = [
+        'shipping_cost',
+        'taxt',
+        'grand_total'
+    ];
+
+    public function buyer()
+    {
+        return $this->belongsTo(Buyer::class);
+    }
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
+}
