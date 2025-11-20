@@ -60,3 +60,6 @@ Output: "redis-works"
 
 # Models and Migration: Withdrawal
 - php artisan make:model Withdrawal -m
+
+# Models and Migration: Buyer
+- php artisan make:model Buyer -m
