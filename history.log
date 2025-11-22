@@ -122,3 +122,6 @@ Output: "redis-works"
 # Create UserStoreRequest
 - php artisan make:request UserStoreRequest
 # Modify UserController
+
+# Localization
+- php artisan lang:publish
