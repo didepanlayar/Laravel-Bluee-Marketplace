@@ -84,3 +84,20 @@ Output: "redis-works"
 
 # Fix Models and Migration typo then fresh migrate
 - php artisan migrate:fresh
+
+### API User
+
+# Create app/Interfaces/UserRepositoryInterface.php
+# Create app/Repositories/UserRepository.php
+# Add ScopeSearch function to User Models
+# Register to Provider
+- php artisan make:provider RepositoryServiceProvider
+# Modify RepositoryServiceProvider.php
+# Create PaginateResource
+- php artisan make:resource PaginateResource
+# Create UserResource
+- php artisan make:resource UserResource
+# Create UserController
+- php artisan make:controller UserController --api
+# Install API Route
+- php artisan install:api
