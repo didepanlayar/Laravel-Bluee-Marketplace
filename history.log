@@ -101,3 +101,12 @@ Output: "redis-works"
 - php artisan make:controller UserController --api
 # Install API Route
 - php artisan install:api
+
+### CRUD User
+
+# Fix app/Helpers/ResponseHelper.php and app/Repositories/UserRepository.php
+
+# Create dummy User data
+- php artisan make:seeder UserSeeder
+# Modify UserSeeder then seed
+- php artisan db:seed --class=UserSeeder
