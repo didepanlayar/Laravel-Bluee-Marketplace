@@ -125,3 +125,10 @@ Output: "redis-works"
 
 # Localization
 - php artisan lang:publish
+
+# Update Data
+# Modify app/Interfaces/UserRepositoryInterface.php
+# Modify app/Repositories/UserRepository.php
+# Create UserUpdateRequest
+- php artisan make:request UserUpdateRequest
+# Modify UserController
