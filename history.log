@@ -111,6 +111,14 @@ Output: "redis-works"
 # Modify UserSeeder then seed
 - php artisan db:seed --class=UserSeeder
 
+# Show Data
 # Modify app/Interfaces/UserRepositoryInterface.php
 # Modify app/Repositories/UserRepository.php
+# Modify UserController
+
+# Create Data
+# Modify app/Interfaces/UserRepositoryInterface.php
+# Modify app/Repositories/UserRepository.php
+# Create UserStoreRequest
+- php artisan make:request UserStoreRequest
 # Modify UserController

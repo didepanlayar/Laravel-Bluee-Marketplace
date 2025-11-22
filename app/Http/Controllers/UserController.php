@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\ResponseHelper;
+use App\Http\Requests\UserStoreRequest;
 use App\Http\Resources\PaginateResource;
 use App\Http\Resources\UserResource;
 use App\Interfaces\UserRepositoryInterface;
@@ -28,7 +29,7 @@ class UserController extends Controller
             $users = $this->userRepository->getAllPaginated($request['search'] ?? null, $request['row_per_page']);
 
             return ResponseHelper::jsonResponse(true, 'Data retrieved successfully.', PaginateResource::make($users, UserResource::class), 200);
-        } catch (\Throwable $e) {
+        } catch (\Exception $e) {
             return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
         }
     }
@@ -42,7 +43,7 @@ class UserController extends Controller
             $users = $this->userRepository->getAll($request->search, $request->limit, true);
 
             return ResponseHelper::jsonResponse(true, 'Data retrieved successfully.', UserResource::collection($users), 200);
-        } catch (\Throwable $e) {
+        } catch (\Exception $e) {
             return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
         }
     }
@@ -50,9 +51,17 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
-        //
+        $request = $request->validated();
+
+        try {
+            $user = $this->userRepository->create($request);
+
+            return ResponseHelper::jsonResponse(true, 'Data added successfully.', new UserResource($user), 201);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
     }
 
     /**
@@ -68,7 +77,7 @@ class UserController extends Controller
             }
 
             return ResponseHelper::jsonResponse(true, 'Data retrieved successfully.', new UserResource($user), 200);
-        } catch (\Throwable $e) {
+        } catch (\Exception $e) {
             return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
         }
     }
