@@ -60,7 +60,17 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        try {
+            $user = $this->userRepository->getById($id);
+
+            if (!$user) {
+                return ResponseHelper::jsonResponse(true, 'Data not found.', null, 404);
+            }
+
+            return ResponseHelper::jsonResponse(true, 'Data retrieved successfully.', new UserResource($user), 200);
+        } catch (\Throwable $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
     }
 
     /**
