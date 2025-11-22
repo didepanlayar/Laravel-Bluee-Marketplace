@@ -84,4 +84,22 @@ class UserRepository implements UserRepositoryInterface
             throw new Exception($e->getMessage());
         }
     }
+
+    public function delete(string $id)
+    {
+        DB::beginTransaction();
+
+        try {
+            $user = User::findOrFail($id);
+            $user->delete();
+
+            DB::commit();
+
+            return $user;
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            throw new Exception($e->getMessage());
+        }
+    }
 }

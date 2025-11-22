@@ -132,3 +132,8 @@ Output: "redis-works"
 # Create UserUpdateRequest
 - php artisan make:request UserUpdateRequest
 # Modify UserController
+
+# Delete Data
+# Modify app/Interfaces/UserRepositoryInterface.php
+# Modify app/Repositories/UserRepository.php
+# Modify UserController
