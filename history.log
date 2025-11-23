@@ -137,3 +137,15 @@ Output: "redis-works"
 # Modify app/Interfaces/UserRepositoryInterface.php
 # Modify app/Repositories/UserRepository.php
 # Modify UserController
+
+### API Store
+
+# Create app/Interfaces/StoreRepositoryInterface.php
+# Create app/Repositories/StoreRepository.php
+# Add ScopeSearch function to Store Models
+# Modify RepositoryServiceProvider.php
+# Create StoreResource
+- php artisan make:resource StoreResource
+# Create StoreController
+- php artisan make:controller StoreController --api
+# Modify API Routes
