@@ -160,3 +160,8 @@ Output: "redis-works"
 - php artisan db:seed --class=StoreSeeder
 # Create symbolink storage
 - php artisan storage:link
+
+# Show Data
+# Modify app/Interfaces/StoreRepositoryInterface.php
+# Modify app/Repositories/StoreRepository.php
+# Modify StoreController
