@@ -149,3 +149,14 @@ Output: "redis-works"
 # Create StoreController
 - php artisan make:controller StoreController --api
 # Modify API Routes
+
+# Create dummy Store data
+# Integrate with ImageHelper
+# Create StoreFactory
+- php artisan make:factory StoreFactory
+# Create StoreSeeder
+- php artisan make:seeder StoreSeeder
+# Modify Store Models and StoreSeeder then seed
+- php artisan db:seed --class=StoreSeeder
+# Create symbolink storage
+- php artisan storage:link
