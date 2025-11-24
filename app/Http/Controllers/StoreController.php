@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ResponseHelper;
 use App\Http\Requests\StoreStoreRequest;
+use App\Http\Requests\StoreUpdateRequest;
 use App\Http\Resources\PaginateResource;
 use App\Http\Resources\StoreResource;
 use App\Interfaces\StoreRepositoryInterface;
@@ -102,9 +103,23 @@ class StoreController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreUpdateRequest $request, string $id)
     {
-        //
+        $request = $request->validated();
+
+        try {
+            $store = $this->storeRepository->getById($id);
+
+            if (!$store) {
+                return ResponseHelper::jsonResponse(true, 'Data not found.', null, 404);
+            }
+
+            $store = $this->storeRepository->update($id, $request);
+
+            return ResponseHelper::jsonResponse(true, 'Data updated successfully.', new StoreResource($store), 201);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
     }
 
     /**
