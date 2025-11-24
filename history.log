@@ -185,3 +185,8 @@ Output: "redis-works"
 # Create StoreUpdateRequest
 - php artisan make:request StoreUpdateRequest
 # Modify StoreController
+
+# Delete Data
+# Modify app/Interfaces/StoreRepositoryInterface.php
+# Modify app/Repositories/StoreRepository.php
+# Modify StoreController
