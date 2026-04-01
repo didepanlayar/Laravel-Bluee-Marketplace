@@ -190,3 +190,15 @@ Output: "redis-works"
 # Modify app/Interfaces/StoreRepositoryInterface.php
 # Modify app/Repositories/StoreRepository.php
 # Modify StoreController
+
+### API StoreBalance
+
+# Create app/Interfaces/StoreBalanceRepositoryInterface.php
+# Modify app/Repositories/StoreBalanceRepository.php
+# Add ScopeSearch function to StoreBalance Models
+# Modify RepositoryServiceProvider.php
+# Create StoreBalanceResource
+- php artisan make:resource StoreBalanceResource
+# Create StoreBalanceController
+- php artisan make:controller StoreBalanceController --api
+# Modify API Routes
