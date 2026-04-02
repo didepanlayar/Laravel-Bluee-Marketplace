@@ -4,6 +4,8 @@ namespace App\Repositories;
 
 use App\Interfaces\StoreBalanceRepositoryInterface;
 use App\Models\StoreBalance;
+use Exception;
+use Illuminate\Support\Facades\DB;
 
 class StoreBalanceRepository implements StoreBalanceRepositoryInterface
 {
@@ -38,5 +40,48 @@ class StoreBalanceRepository implements StoreBalanceRepositoryInterface
         $query = StoreBalance::where('id', $id);
 
         return $query->first();
+    }
+
+    public function credit(string $id, string $amount)
+    {
+        DB::beginTransaction();
+
+        try {
+            $storeBalance = StoreBalance::find($id);
+            $storeBalance->balance = bcadd($storeBalance->balance, $amount, 2);
+            $storeBalance->save();
+
+            DB::commit();
+
+            return $storeBalance;
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function debit(string $id, string $amount)
+    {
+        DB::beginTransaction();
+
+        try {
+            $storeBalance = StoreBalance::find($id);
+
+            if (bccomp($storeBalance->balance, $amount, 2) < 0) {
+                throw new Exception("Insufficient balance");
+            }
+
+            $storeBalance->balance = bcsub($storeBalance->balance, $amount, 2);
+            $storeBalance->save();
+
+            DB::commit();
+
+            return $storeBalance;
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            throw new Exception($e->getMessage());
+        }
     }
 }

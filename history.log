@@ -219,3 +219,9 @@ Output: "redis-works"
 # Modify app/Repositories/StoreBalanceRepository.php
 # Modify StoreBalanceResource
 # Modify StoreBalanceController
+
+# Logic Credit and Debit
+# Modify StoreBalanceController
+# Modify API Routes
+# Modify app/Interfaces/StoreBalanceRepositoryInterface.php
+# Modify app/Repositories/StoreBalanceRepository.php
