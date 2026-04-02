@@ -213,3 +213,9 @@ Output: "redis-works"
 - php artisan db:seed
 # Or
 -  php artisan migrate:fresh --seed
+
+# Show Data
+# Modify app/Interfaces/StoreBalanceRepositoryInterface.php
+# Modify app/Repositories/StoreBalanceRepository.php
+# Modify StoreBalanceResource
+# Modify StoreBalanceController
