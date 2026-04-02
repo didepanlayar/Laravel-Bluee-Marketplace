@@ -202,3 +202,14 @@ Output: "redis-works"
 # Create StoreBalanceController
 - php artisan make:controller StoreBalanceController --api
 # Modify API Routes
+
+# Create dummy StoreBalance data
+# Create StoreBalanceFactory
+- php artisan make:factory StoreBalanceFactory
+# Modify StoreSeeder
+# Modify StoreBalance Models
+# Modify DatabaseSeeder (fresh migrate)
+- php artisan migrate:fresh
+- php artisan db:seed
+# Or
+-  php artisan migrate:fresh --seed
