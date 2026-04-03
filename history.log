@@ -225,3 +225,15 @@ Output: "redis-works"
 # Modify API Routes
 # Modify app/Interfaces/StoreBalanceRepositoryInterface.php
 # Modify app/Repositories/StoreBalanceRepository.php
+
+### API StoreBalanceHistory
+
+# Create app/Interfaces/StoreBalanceHistoryRepositoryInterface.php
+# Modify app/Repositories/StoreBalanceHistoryRepository.php
+# Add ScopeSearch function to StoreBalanceHistory Models
+# Modify RepositoryServiceProvider.php
+# Create StoreBalanceHistoryResource
+- php artisan make:resource StoreBalanceHistoryResource
+# Create StoreBalanceHistoryController
+- php artisan make:controller StoreBalanceHistoryController --api
+# Modify API Routes
