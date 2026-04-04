@@ -59,7 +59,17 @@ class StoreBalanceHistoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        try {
+            $storeBalanceHistory = $this->storeBalanceHistoryRepository->getById($id);
+
+            if (!$storeBalanceHistory) {
+                return ResponseHelper::jsonResponse(true, 'Data not found.', null, 404);
+            }
+
+            return ResponseHelper::jsonResponse(true, 'Data retrieved successfully.', new StoreBalanceHistoryResource($storeBalanceHistory), 200);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
     }
 
     /**

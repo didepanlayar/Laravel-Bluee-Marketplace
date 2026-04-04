@@ -246,3 +246,9 @@ Output: "redis-works"
 # Modify StoreBalanceHistory Models
 # Fresh Migrate
 -  php artisan migrate:fresh --seed
+
+# Show Data
+# Modify app/Interfaces/StoreBalanceHistoryRepositoryInterface.php
+# Modify app/Repositories/StoreBalanceHistoryRepository.php
+# Modify StoreBalanceHistoryResource
+# Modify StoreBalanceHistoryController
