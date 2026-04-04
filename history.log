@@ -256,3 +256,8 @@ Output: "redis-works"
 # Create Data
 # Modify app/Interfaces/StoreBalanceHistoryRepositoryInterface.php
 # Modify app/Repositories/StoreBalanceHistoryRepository.php
+
+# Update Data
+# Modify app/Interfaces/StoreBalanceHistoryRepositoryInterface.php
+# Modify app/Repositories/StoreBalanceHistoryRepository.php
+# Modify StoreBalanceHistoryController
