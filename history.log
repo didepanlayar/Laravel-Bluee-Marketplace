@@ -261,3 +261,14 @@ Output: "redis-works"
 # Modify app/Interfaces/StoreBalanceHistoryRepositoryInterface.php
 # Modify app/Repositories/StoreBalanceHistoryRepository.php
 # Modify StoreBalanceHistoryController
+
+### API Withdrawal
+# Create app/Interfaces/WithdrawalRepositoryInterface.php
+# Create app/Repositories/WithdrawalRepository.php
+# Add ScopeSearch function to Withdrawal Models
+# Modify RepositoryServiceProvider.php
+# Create WithdrawalResource
+- php artisan make:resource WithdrawalResource
+# Create WithdrawalController
+- php artisan make:controller WithdrawalController --api
+# Modify API Routes
