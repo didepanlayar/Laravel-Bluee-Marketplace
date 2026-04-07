@@ -272,3 +272,12 @@ Output: "redis-works"
 # Create WithdrawalController
 - php artisan make:controller WithdrawalController --api
 # Modify API Routes
+
+# Create dummy Withdrawal data
+# Create WithdrawalFactory
+- php artisan make:factory WithdrawalFactory
+# Modify Withdrawal Models
+# Modify Withdrawal Migration
+# Modify StoreSeeder
+# Fresh Migrate
+-  php artisan migrate:fresh --seed
