@@ -281,3 +281,8 @@ Output: "redis-works"
 # Modify StoreSeeder
 # Fresh Migrate
 -  php artisan migrate:fresh --seed
+
+# Show Data
+# Modify app/Interfaces/WithdrawalRepositoryInterface.php
+# Modify app/Repositories/WithdrawalRepository.php
+# Modify WithdrawalController
