@@ -2,6 +2,8 @@
 
 namespace App\Interfaces;
 
+use Illuminate\Http\UploadedFile;
+
 interface WithdrawalRepositoryInterface
 {
     public function getAll(?string $search, ?int $limit, bool $execute);
@@ -11,4 +13,6 @@ interface WithdrawalRepositoryInterface
     public function getById(string $id);
 
     public function create(array $data);
+
+    public function approve(string $id, UploadedFile $proof);
 }

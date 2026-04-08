@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\ResponseHelper;
+use App\Http\Requests\WithdrawalApproveRequest;
 use App\Http\Requests\WithdrawalStoreRequest;
 use App\Http\Resources\PaginateResource;
 use App\Http\Resources\WithdrawalResource;
@@ -82,18 +83,24 @@ class WithdrawalController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Approve the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function approve(WithdrawalApproveRequest $request, string $id)
     {
-        //
-    }
+        $request = $request->validated();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        try {
+            $withdrawal = $this->withdrawalRepository->getById($id);
+
+            if (!$withdrawal) {
+                return ResponseHelper::jsonResponse(true, 'Data not found.', null, 404);
+            }
+
+            $withdrawal = $this->withdrawalRepository->approve($id, $request['proof']);
+
+            return ResponseHelper::jsonResponse(true, 'Withdrawal of funds was successfully approved.', new WithdrawalResource($withdrawal), 200);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
     }
 }
