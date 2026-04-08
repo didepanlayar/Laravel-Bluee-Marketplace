@@ -286,3 +286,10 @@ Output: "redis-works"
 # Modify app/Interfaces/WithdrawalRepositoryInterface.php
 # Modify app/Repositories/WithdrawalRepository.php
 # Modify WithdrawalController
+
+# Create Data
+# Modify app/Interfaces/WithdrawalRepositoryInterface.php
+# Modify app/Repositories/WithdrawalRepository.php
+# Create WithdrawalStoreRequest
+- php artisan make:request WithdrawalStoreRequest
+# Modify WithdrawalController
