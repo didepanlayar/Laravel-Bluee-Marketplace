@@ -320,3 +320,8 @@ Output: "redis-works"
 - php artisan make:seeder BuyerSeeder
 # Modify Buyer Models, BuyerSeeder, DatabaseSeeder then seed
 - php artisan db:seed --class=BuyerSeeder
+
+# Show Data
+# Modify app/Interfaces/BuyerRepositoryInterface.php
+# Modify app/Repositories/BuyerRepository.php
+# Modify BuyerController

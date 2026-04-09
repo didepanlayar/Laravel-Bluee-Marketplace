@@ -32,4 +32,11 @@ class BuyerRepository implements BuyerRepositoryInterface
 
         return $query->paginate($rowPerPage);
     }
+
+    public function getById(string $id)
+    {
+        $query = Buyer::where('id', $id);
+
+        return $query->first();
+    }
 }
