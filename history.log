@@ -312,3 +312,11 @@ Output: "redis-works"
 # Create BuyerController
 - php artisan make:controller BuyerController --api
 # Modify API Routes
+
+# Create dummy Buyer data
+# Create BuyerFactory
+- php artisan make:factory BuyerFactory
+# Create BuyerSeeder
+- php artisan make:seeder BuyerSeeder
+# Modify Buyer Models, BuyerSeeder, DatabaseSeeder then seed
+- php artisan db:seed --class=BuyerSeeder
