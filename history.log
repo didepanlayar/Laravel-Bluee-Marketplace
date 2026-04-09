@@ -301,3 +301,14 @@ Output: "redis-works"
 - php artisan make:request WithdrawalApproveRequest
 # Modify WithdrawalController
 # Modify API Routes
+
+### API Buyer
+# Create app/Interfaces/BuyerRepositoryInterface.php
+# Create app/Repositories/BuyerRepository.php
+# Add ScopeSearch function to Buyer Models
+# Modify RepositoryServiceProvider.php
+# Create BuyerResource
+- php artisan make:resource BuyerResource
+# Create BuyerController
+- php artisan make:controller BuyerController --api
+# Modify API Routes
