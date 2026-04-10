@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\ResponseHelper;
+use App\Http\Requests\BuyerStoreRequest;
 use App\Http\Resources\BuyerResource;
 use App\Http\Resources\PaginateResource;
 use App\Interfaces\BuyerRepositoryInterface;
@@ -50,9 +51,17 @@ class BuyerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BuyerStoreRequest $request)
     {
-        //
+        $request = $request->validated();
+        
+        try {
+            $buyer = $this->buyerRepository->create($request);
+
+            return ResponseHelper::jsonResponse(true, 'Data create successfully.', new BuyerResource($buyer), 201);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
     }
 
     /**
