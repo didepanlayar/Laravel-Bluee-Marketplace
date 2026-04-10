@@ -332,3 +332,10 @@ Output: "redis-works"
 # Create BuyerStoreRequest
 - php artisan make:request BuyerStoreRequest
 # Modify BuyerController
+
+# Update Data
+# Modify app/Interfaces/BuyerRepositoryInterface.php
+# Modify app/Repositories/BuyerRepository.php
+# Create BuyerUpdateRequest
+- php artisan make:request BuyerUpdateRequest
+# Modify BuyerController
