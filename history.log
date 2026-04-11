@@ -344,3 +344,14 @@ Output: "redis-works"
 # Modify app/Interfaces/BuyerRepositoryInterface.php
 # Modify app/Repositories/BuyerRepository.php
 # Modify BuyerController
+
+### API ProductCategory
+# Create app/Interfaces/ProductCategoryRepositoryInterface.php
+# Create app/Repositories/ProductCategoryRepository.php
+# Add ScopeSearch function to ProductCategory Models
+# Modify RepositoryServiceProvider.php
+# Create ProductCategoryResource
+- php artisan make:resource ProductCategoryResource
+# Create ProductCategoryController
+- php artisan make:controller ProductCategoryController --api
+# Modify API Routes
