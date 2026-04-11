@@ -21,11 +21,12 @@ class ProductCategoryController extends Controller
     {
         $request = $request->validate([
             'search' => 'nullable|string',
+            'is_parent' => 'nullable|boolean',
             'row_per_page' => 'required|integer'
         ]);
 
         try {
-            $productCategories = $this->productCategoryRepository->getAllPaginated($request['search'] ?? null, $request['row_per_page']);
+            $productCategories = $this->productCategoryRepository->getAllPaginated($request['search'] ?? null, $request['is_parent'] ?? null, $request['row_per_page']);
 
             return ResponseHelper::jsonResponse(true, 'Data retrieved successfully.', PaginateResource::make($productCategories, ProductCategoryResource::class), 200);
         } catch (\Exception $e) {
@@ -39,7 +40,7 @@ class ProductCategoryController extends Controller
     public function index(Request $request)
     {
         try {
-            $productCategories = $this->productCategoryRepository->getAll($request->search, $request->limit, true);
+            $productCategories = $this->productCategoryRepository->getAll($request->search, $request->is_parent, $request->limit, true);
 
             return ResponseHelper::jsonResponse(true, 'Data retrieved successfully.', ProductCategoryResource::collection($productCategories), 200);
         } catch (\Exception $e) {

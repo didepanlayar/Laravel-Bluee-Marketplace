@@ -4,7 +4,7 @@ namespace App\Interfaces;
 
 interface ProductCategoryRepositoryInterface
 {
-    public function getAll(?string $search, ?int $limit, bool $execute);
+    public function getAll(?string $search, ?bool $isParent = null, ?int $limit, bool $execute);
 
-    public function getAllPaginated(?string $search, ?int $rowPerPage);
+    public function getAllPaginated(?string $search, ?bool $isParent = null, ?int $rowPerPage);
 }

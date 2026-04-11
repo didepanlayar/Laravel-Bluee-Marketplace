@@ -21,7 +21,7 @@ class ProductCategoryResource extends JsonResource
             'name' => $this->name,
             'tagline' => $this->tagline,
             'description' => $this->description,
-            'children' => ProductCategoryResource::collection($this->children),
+            'childrens' => ProductCategoryResource::collection($this->whenLoaded('childrens')),
         ];
     }
 }
