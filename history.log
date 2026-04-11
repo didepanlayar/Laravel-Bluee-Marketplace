@@ -355,3 +355,9 @@ Output: "redis-works"
 # Create ProductCategoryController
 - php artisan make:controller ProductCategoryController --api
 # Modify API Routes
+
+# Create dummy ProductCategory data
+# Create ProductCategorySeeder
+- php artisan make:seeder ProductCategorySeeder
+# Modify ProductCategorySeeder and DatabaseSeeder then seed
+- php artisan db:seed --class=ProductCategorySeeder
