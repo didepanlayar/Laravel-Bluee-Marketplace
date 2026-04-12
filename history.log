@@ -372,3 +372,10 @@ Output: "redis-works"
 # Modify app/Repositories/ProductCategoryRepository.php
 # Modify ProductCategoryController
 # Modify API Routes
+
+# Create Data
+# Modify app/Interfaces/ProductCategoryRepositoryInterface.php
+# Modify app/Repositories/ProductCategoryRepository.php
+# Create ProductCategoryStoreRequest
+- php artisan make:request ProductCategoryStoreRequest
+# Modify ProductCategoryController
