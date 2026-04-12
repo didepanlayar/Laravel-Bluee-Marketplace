@@ -366,3 +366,9 @@ Output: "redis-works"
 # Modify app/Interfaces/ProductCategoryRepositoryInterface.php
 # Modify app/Repositories/ProductCategoryRepository.php
 # Modify ProductCategoryController
+
+# Show Data By Slug
+# Modify app/Interfaces/ProductCategoryRepositoryInterface.php
+# Modify app/Repositories/ProductCategoryRepository.php
+# Modify ProductCategoryController
+# Modify API Routes

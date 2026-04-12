@@ -19,6 +19,7 @@ class ProductCategoryResource extends JsonResource
             'parent' => new ProductCategoryResource($this->parent),
             'image' => asset('storage/' . $this->image),
             'name' => $this->name,
+            'slug' => $this->slug,
             'tagline' => $this->tagline,
             'description' => $this->description,
             'childrens' => ProductCategoryResource::collection($this->whenLoaded('childrens')),

@@ -9,4 +9,6 @@ interface ProductCategoryRepositoryInterface
     public function getAllPaginated(?string $search, ?bool $isParent = null, ?int $rowPerPage);
 
     public function getById(string $id);
+
+    public function getBySlug(string $slug);
 }
