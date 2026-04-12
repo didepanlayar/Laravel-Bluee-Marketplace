@@ -36,4 +36,11 @@ class ProductCategoryRepository implements ProductCategoryRepositoryInterface
 
         return $query->paginate($rowPerPage);
     }
+
+    public function getById(string $id)
+    {
+        $query = ProductCategory::where('id', $id)->with('childrens');
+
+        return $query->first();
+    }
 }

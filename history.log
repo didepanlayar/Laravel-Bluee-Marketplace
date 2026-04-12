@@ -361,3 +361,8 @@ Output: "redis-works"
 - php artisan make:seeder ProductCategorySeeder
 # Modify ProductCategorySeeder and DatabaseSeeder then seed
 - php artisan db:seed --class=ProductCategorySeeder
+
+# Show Data
+# Modify app/Interfaces/ProductCategoryRepositoryInterface.php
+# Modify app/Repositories/ProductCategoryRepository.php
+# Modify ProductCategoryController
