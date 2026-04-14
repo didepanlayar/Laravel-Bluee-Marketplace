@@ -404,3 +404,16 @@ Output: "redis-works"
 # Create ProductController
 - php artisan make:controller ProductController --api
 # Modify API Routes
+
+# Create dummy Product data
+# Modify Product and ProductImage Models
+# Modify ProductResource
+# Modify app/Repositories/ProductRepository.php
+# Create ProductFactory
+- php artisan make:factory ProductFactory
+# Create ProductImageFactory
+- php artisan make:factory ProductImageFactory
+# Create ProductSeeder
+- php artisan make:seeder ProductSeeder
+# Modify ProductSeeder and DatabaseSeeder then seed
+- php artisan db:seed --class=ProductSeeder

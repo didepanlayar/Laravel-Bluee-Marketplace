@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use App\Traits\UUID;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use UUID;
+    use UUID, HasFactory;
 
     protected $fillable = [
         'store_id',
@@ -44,7 +45,7 @@ class Product extends Model
 
     public function productImages()
     {
-        return $this->belongsTo(ProductImage::class);
+        return $this->hasMany(ProductImage::class);
     }
 
     public function transactionDetails()

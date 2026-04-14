@@ -17,7 +17,7 @@ class ProductRepository implements ProductRepositoryInterface
             if ($productCategoryId) {
                 $query->where('product_category_id', $productCategoryId);
             }
-        });
+        })->with(['productImages']);
 
         if ($limit) {
             $query->take($limit);

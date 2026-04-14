@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->longText('description');
-            $table->enum('condiition', ['new', 'second']);
+            $table->enum('condition', ['new', 'second']);
             $table->decimal('price', 26, 2);
             $table->integer('weight');
             $table->integer('stock');
