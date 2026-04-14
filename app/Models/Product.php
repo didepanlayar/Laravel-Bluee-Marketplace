@@ -26,6 +26,12 @@ class Product extends Model
         'price' => 'decimal:2'
     ];
 
+    // Scope Product Search
+    public function scopeSearch($query, $search)
+    {
+        return $query->where('name', 'like', '%' . $search . '%');
+    }
+
     public function store()
     {
         return $this->belongsTo(Store::class);
