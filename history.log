@@ -422,3 +422,9 @@ Output: "redis-works"
 # Modify app/Interfaces/ProductRepositoryInterface.php
 # Modify app/Repositories/ProductRepository.php
 # Modify ProductController
+
+# Show Data By Slug
+# Modify app/Interfaces/ProductRepositoryInterface.php
+# Modify app/Repositories/ProductRepository.php
+# Modify ProductController
+# Modify API Routes
