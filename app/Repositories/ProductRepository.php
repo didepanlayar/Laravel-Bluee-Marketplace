@@ -36,4 +36,11 @@ class ProductRepository implements ProductRepositoryInterface
 
         return $query->paginate($rowPerPage);
     }
+
+    public function getById(string $id)
+    {
+        $query = Product::where('id', $id)->with('productImages');
+
+        return $query->first();
+    }
 }
