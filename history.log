@@ -449,3 +449,8 @@ Output: "redis-works"
 # Create ProductUpdateRequest
 - php artisan make:request ProductUpdateRequest
 # Modify ProductController
+
+# Delete Data
+# Modify app/Interfaces/ProductRepositoryInterface.php
+# Modify app/Repositories/ProductRepository.php
+# Modify ProductController

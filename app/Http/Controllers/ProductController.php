@@ -126,6 +126,18 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $product = $this->productRepository->getById($id);
+
+            if (!$product) {
+                return ResponseHelper::jsonResponse(true, 'Data not found.', null, 404);
+            }
+
+            $product = $this->productRepository->delete($id);
+
+            return ResponseHelper::jsonResponse(true, 'Data deleted successfully.', new ProductResource($product), 200);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
     }
 }

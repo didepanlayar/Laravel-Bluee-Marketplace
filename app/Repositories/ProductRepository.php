@@ -139,4 +139,22 @@ class ProductRepository implements ProductRepositoryInterface
             throw new Exception($e->getMessage());
         }
     }
+
+    public function delete(string $id)
+    {
+        DB::beginTransaction();
+
+        try {
+            $product = Product::find($id);
+            $product->delete();
+
+            DB::commit();
+
+            return $product;
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            throw new Exception($e->getMessage());
+        }
+    }
 }
