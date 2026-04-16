@@ -16,6 +16,10 @@ class ProductImage extends Model
         'is_thumbnail'
     ];
 
+    protected $casts = [
+        'is_thumbnail' => 'boolean'
+    ];
+
     public function product()
     {
         return $this->belongsTo(Product::class);

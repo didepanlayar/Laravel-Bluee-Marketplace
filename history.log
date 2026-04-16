@@ -428,3 +428,18 @@ Output: "redis-works"
 # Modify app/Repositories/ProductRepository.php
 # Modify ProductController
 # Modify API Routes
+
+# Create Data
+# Create app/Interfaces/ProductImageRepositoryInterface.php
+# Create app/Repositories/ProductImageRepository.php
+# Modify app/Interfaces/ProductRepositoryInterface.php
+# Modify app/Repositories/ProductRepository.php
+# Create ProductStoreRequest
+- php artisan make:request ProductStoreRequest
+# Modify ProductController
+# Create migration change_weight_column_type_on_products_table.php
+- php artisan make:migration change_weight_column_type_on_products_table --table=products
+- php artisan migrate
+# Modify ProductResource
+# Modify Product and ProductImage Models
+

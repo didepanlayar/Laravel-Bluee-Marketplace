@@ -11,4 +11,6 @@ interface ProductRepositoryInterface
     public function getById(string $id);
 
     public function getBySlug(string $slug);
+
+    public function create(array $data);
 }
