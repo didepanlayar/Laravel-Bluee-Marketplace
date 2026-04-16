@@ -92,4 +92,51 @@ class ProductRepository implements ProductRepositoryInterface
             throw new Exception($e->getMessage());
         }
     }
+
+    public function update(string $id, array $data)
+    {
+        DB::beginTransaction();
+
+        try {
+            $product = Product::find($id);
+            $product->store_id = $data['store_id'];
+            $product->product_category_id = $data['product_category_id'];
+            $product->name = $data['name'];
+            $product->slug = Str::slug($data['name']) . '-i.' . rand(100000, 999999) . '.' . rand(100000, 999999);
+            $product->description = $data['description'];
+            $product->condition = $data['condition'];
+            $product->price = $data['price'];
+            $product->weight = $data['weight'];
+            $product->stock = $data['stock'];
+            $product->save();
+
+            $productImageRepository = new ProductImageRepository;
+
+            if (isset($data['deleted_product_image'])) {
+                foreach ($data['deleted_product_image'] as $productImage) {
+                    $productImageRepository->delete($productImage);
+                }
+            }
+
+            if (isset($data['product_images'])) {
+                foreach ($data['product_images'] as $productImage) {
+                    if (!isset($productImage['id'])) {
+                        $productImageRepository->create([
+                            'product_id' => $product->id,
+                            'image' => $productImage['image'],
+                            'is_thumbnail' => $productImage['is_thumbnail']
+                        ]);
+                    }
+                }
+            }
+
+            DB::commit();
+
+            return $product;
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            throw new Exception($e->getMessage());
+        }
+    }
 }

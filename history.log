@@ -443,3 +443,9 @@ Output: "redis-works"
 # Modify ProductResource
 # Modify Product and ProductImage Models
 
+# Update Data
+# Modify app/Interfaces/ProductRepositoryInterface.php
+# Modify app/Repositories/ProductRepository.php
+# Create ProductUpdateRequest
+- php artisan make:request ProductUpdateRequest
+# Modify ProductController

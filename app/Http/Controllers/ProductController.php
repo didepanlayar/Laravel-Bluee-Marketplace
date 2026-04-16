@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ResponseHelper;
 use App\Http\Requests\ProductStoreRequest;
+use App\Http\Requests\ProductUpdateRequest;
 use App\Http\Resources\PaginateResource;
 use App\Http\Resources\ProductResource;
 use App\Interfaces\ProductRepositoryInterface;
@@ -101,9 +102,23 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ProductUpdateRequest $request, string $id)
     {
-        //
+        $request = $request->validated();
+
+        try {
+            $product = $this->productRepository->getById($id);
+
+            if (!$product) {
+                return ResponseHelper::jsonResponse(true, 'Data not found.', null, 404);
+            }
+
+            $product = $this->productRepository->update($id, $request);
+
+            return ResponseHelper::jsonResponse(true, 'Data updated successfully.', new ProductResource($product), 200);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
     }
 
     /**
