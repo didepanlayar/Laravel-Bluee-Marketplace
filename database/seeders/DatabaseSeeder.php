@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             BuyerSeeder::class,
             ProductCategorySeeder::class,
             ProductSeeder::class,
+            TransactionSeeder::class,
         ]);
     }
 }

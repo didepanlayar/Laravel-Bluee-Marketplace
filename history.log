@@ -467,3 +467,15 @@ Output: "redis-works"
 # Create TransactionController
 - php artisan make:controller TransactionController --api
 # Modify API Routes
+
+# Create dummy Transaction data
+# Modify Transaction and TransactionDetail Models
+# Modify TransactionDetailResource
+# Create TransactionFactory
+- php artisan make:factory TransactionFactory
+# Create TransactionDetailFactory
+- php artisan make:factory TransactionDetailFactory
+# Create TransactionSeeder
+- php artisan make:seeder TransactionSeeder
+# Modify TransactionSeeder and DatabaseSeeder then seed
+- php artisan migrate:fresh --seed
