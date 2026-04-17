@@ -454,3 +454,16 @@ Output: "redis-works"
 # Modify app/Interfaces/ProductRepositoryInterface.php
 # Modify app/Repositories/ProductRepository.php
 # Modify ProductController
+
+### API Transaction
+# Create app/Interfaces/TransactionRepositoryInterface.php
+# Create app/Repositories/TransactionRepository.php
+# Add ScopeSearch function to Transaction Models
+# Modify RepositoryServiceProvider.php
+# Create TransactionResource
+- php artisan make:resource TransactionResource
+# Create TransactionDetailResource
+- php artisan make:resource TransactionDetailResource
+# Create TransactionController
+- php artisan make:controller TransactionController --api
+# Modify API Routes
