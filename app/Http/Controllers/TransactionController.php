@@ -60,7 +60,17 @@ class TransactionController extends Controller
      */
     public function show(string $id)
     {
-        //
+        try {
+            $transaction = $this->transactionRepository->getById($id);
+
+            if (!$transaction) {
+                return ResponseHelper::jsonResponse(true, 'Data not found.', null, 404);
+            }
+
+            return ResponseHelper::jsonResponse(true, 'Data retrieved successfully.', new TransactionResource($transaction), 200);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
     }
 
     /**

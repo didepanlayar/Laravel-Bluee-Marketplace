@@ -479,3 +479,8 @@ Output: "redis-works"
 - php artisan make:seeder TransactionSeeder
 # Modify TransactionSeeder and DatabaseSeeder then seed
 - php artisan migrate:fresh --seed
+
+# Show Data
+# Modify app/Interfaces/TransactionRepositoryInterface.php
+# Modify app/Repositories/TransactionRepository.php
+# Modify TransactionController
