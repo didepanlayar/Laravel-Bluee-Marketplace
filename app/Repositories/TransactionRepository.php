@@ -39,4 +39,11 @@ class TransactionRepository implements TransactionRepositoryInterface
 
         return $query->first();
     }
+
+    public function getByCode(string $code)
+    {
+        $query = Transaction::where('code', $code);
+
+        return $query->first();
+    }
 }

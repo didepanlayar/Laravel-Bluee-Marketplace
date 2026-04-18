@@ -484,3 +484,9 @@ Output: "redis-works"
 # Modify app/Interfaces/TransactionRepositoryInterface.php
 # Modify app/Repositories/TransactionRepository.php
 # Modify TransactionController
+
+# Show Data By Code
+# Modify app/Interfaces/TransactionRepositoryInterface.php
+# Modify app/Repositories/TransactionRepository.php
+# Modify TransactionController
+# Modify API Routes

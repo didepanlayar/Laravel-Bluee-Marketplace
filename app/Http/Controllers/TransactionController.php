@@ -73,6 +73,21 @@ class TransactionController extends Controller
         }
     }
 
+    public function showByCode(string $code)
+    {
+        try {
+            $transaction = $this->transactionRepository->getByCode($code);
+
+            if (!$transaction) {
+                return ResponseHelper::jsonResponse(true, 'Data not found.', null, 404);
+            }
+
+            return ResponseHelper::jsonResponse(true, 'Data retrieved successfully.', new TransactionResource($transaction), 200);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
+    }
+
     /**
      * Update the specified resource in storage.
      */
