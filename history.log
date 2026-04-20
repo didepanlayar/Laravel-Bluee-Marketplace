@@ -490,3 +490,21 @@ Output: "redis-works"
 # Modify app/Repositories/TransactionRepository.php
 # Modify TransactionController
 # Modify API Routes
+
+# Create Data
+# Register RajaOngkir and Midtrans
+# Create app/Interfaces/TransactionDetailRepositoryInterface.php
+# Create app/Repositories/TransactionDetailRepository.php
+# Modify RepositoryServiceProvider.php
+# Modify app/Interfaces/TransactionRepositoryInterface.php
+# Modify app/Repositories/TransactionRepository.php
+# Create app/config/midtrans.php
+# Modify .env
+# Install Midtrans
+- composer require midtrans/midtrans-php
+# Modify migration create_transactions_table.php
+# Modify Transaction Models
+# Modify TransactionResource
+# Create TransactionStoreRequest
+- php artisan make:request TransactionStoreRequest
+# Modify TransactionController
