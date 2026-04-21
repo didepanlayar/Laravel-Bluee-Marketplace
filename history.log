@@ -508,3 +508,11 @@ Output: "redis-works"
 # Create TransactionStoreRequest
 - php artisan make:request TransactionStoreRequest
 # Modify TransactionController
+
+# Update Data
+# Modify app/Interfaces/TransactionRepositoryInterface.php
+# Modify app/Repositories/TransactionRepository.php
+# Modify TransactionResource
+# Create TransactionUpdateRequest
+- php artisan make:request TransactionUpdateRequest
+# Modify TransactionController

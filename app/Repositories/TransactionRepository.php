@@ -128,6 +128,34 @@ class TransactionRepository implements TransactionRepositoryInterface
         }
     }
 
+    public function updateStatus(string $id, array $data)
+    {
+        DB::beginTransaction();
+
+        try {
+            $transaction = Transaction::find($id);
+
+            if (isset($data['tracking_number'])) {
+                $transaction->tracking_number = $data['tracking_number'];
+            }
+
+            if (isset($data['delivery_proof'])) {
+                $transaction->delivery_proof = $data['delivery_proof']->store('assets/transaction', 'public');
+            }
+
+            $transaction->delivery_status = $data['delivery_status'];
+            $transaction->save();
+
+            DB::commit();
+
+            return $transaction;
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            throw new Exception($e->getMessage());
+        }
+    }
+
     private function getTotalWeight(array $transactionDetails): int
     {
         $productIds = collect($transactionDetails)->pluck('product_id')->toArray();

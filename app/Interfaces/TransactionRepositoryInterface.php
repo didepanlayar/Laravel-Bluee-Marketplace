@@ -13,4 +13,6 @@ interface TransactionRepositoryInterface
     public function getByCode(string $code);
 
     public function create(array $data);
+
+    public function updateStatus(string $id, array $data);
 }
