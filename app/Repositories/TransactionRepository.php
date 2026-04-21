@@ -156,6 +156,22 @@ class TransactionRepository implements TransactionRepositoryInterface
         }
     }
 
+    public function delete(string $id)
+    {
+        DB::beginTransaction();
+
+        try {
+            $transaction = Transaction::find($id);
+            $transaction->delete();
+
+            DB::commit();
+
+            return $transaction;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
     private function getTotalWeight(array $transactionDetails): int
     {
         $productIds = collect($transactionDetails)->pluck('product_id')->toArray();

@@ -125,6 +125,18 @@ class TransactionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $transaction = $this->transactionRepository->getById($id);
+
+            if (!$transaction) {
+                return ResponseHelper::jsonResponse(true, 'Data not found.', null, 404);
+            }
+
+            $transaction = $this->transactionRepository->delete($id);
+
+            return ResponseHelper::jsonResponse(true, 'Data deleted successfully.', new TransactionResource($transaction), 200);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
     }
 }

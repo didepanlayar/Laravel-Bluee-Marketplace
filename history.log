@@ -516,3 +516,8 @@ Output: "redis-works"
 # Create TransactionUpdateRequest
 - php artisan make:request TransactionUpdateRequest
 # Modify TransactionController
+
+# Delete Data
+# Modify app/Interfaces/TransactionRepositoryInterface.php
+# Modify app/Repositories/TransactionRepository.php
+# Modify TransactionController
