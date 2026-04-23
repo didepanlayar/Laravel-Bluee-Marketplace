@@ -521,3 +521,18 @@ Output: "redis-works"
 # Modify app/Interfaces/TransactionRepositoryInterface.php
 # Modify app/Repositories/TransactionRepository.php
 # Modify TransactionController
+
+### API ProductReview
+# Create app/Interfaces/ProductReviewRepositoryInterface.php
+# Create app/Repositories/ProductReviewRepository.php
+# Modify RepositoryServiceProvider.php
+# Create ProductReviewStoreRequest
+- php artisan make:resource ProductReviewStoreRequest
+# Create ProductReviewResource
+- php artisan make:resource ProductReviewResource
+# Create ProductReviewController
+- php artisan make:controller ProductReviewController
+# Modify API Routes
+# Modify Product Models
+# Modify app/Repositories/ProductRepository.php
+# Modify ProductResource
