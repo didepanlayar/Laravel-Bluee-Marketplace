@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'email' => 'superuser@bluee.com',
             'email_verified_at' => now(),
             'password' => bcrypt('Demo2025!'),
-        ]);
+        ])->assignRole('admin');
 
         UserFactory::new()->count(15)->create();
     }
