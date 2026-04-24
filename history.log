@@ -553,3 +553,6 @@ Output: "redis-works"
 - php artisan make:seeder RoleSeeder
 # Modify DatabaseSeeder and UserSeeder then fresh migrate
 - php artisan migrate:fresh --seed
+
+### Middleware
+# Modify All Controller
