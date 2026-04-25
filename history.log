@@ -556,3 +556,21 @@ Output: "redis-works"
 
 ### Middleware
 # Modify All Controller
+
+### API Auth - Register
+# Create PersonalAccessToke Models
+- php artisan make:model PersonalAccessToken
+# Modify migration create_personal_access_tokens_table.php
+- php artisan migrate:fresh --seed
+# Modify AppServiceProvider.php
+# Modify User Models
+# Modify StoreFactory and BuyerFactory
+# Create app/Interfaces/AuthRepositoryInterface.php
+# Create app/Repositories/AuthRepository.php
+# Modify RepositoryServiceProvider.php
+# Create RegisterStoreRequest
+- php artisan make:request RegisterStoreRequest
+# Modify UserResource
+# Create AuthController
+- php artisan make:controller AuthController
+# Modify API Routes

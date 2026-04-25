@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BuyerController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
@@ -68,3 +69,5 @@ Route::get('/product/slug/{slug}', [ProductController::class, 'showBySlug']);
 
 Route::get('/store', [StoreController::class, 'index']);
 Route::get('/store/{store}', [StoreController::class, 'show']);
+
+Route::post('/register', [AuthController::class, 'register']);
