@@ -43,4 +43,15 @@ class AuthController extends Controller
             return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
         }
     }
+
+    public function profile()
+    {
+        try {
+            $user = $this->authRepository->profile();
+
+            return ResponseHelper::jsonResponse(true, 'Data retrieved successfully.', new UserResource($user), 200);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
+    }
 }

@@ -63,4 +63,26 @@ class AuthRepository implements AuthRepositoryInterface
             throw new Exception($e->getMessage());
         }
     }
+
+    public function profile()
+    {
+        DB::beginTransaction();
+
+        try {
+            if (!Auth::check()) {
+                throw new \Exception('Unauthorized');
+            }
+
+            $user = Auth::user();
+            $user->permissions = $user->roles->flatMap->permissions->pluck('name');
+
+            DB::commit();
+
+            return $user;
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            throw new Exception($e->getMessage());
+        }
+    }
 }

@@ -582,3 +582,10 @@ Output: "redis-works"
 - php artisan make:request LoginStoreRequest
 # Modify AuthController
 # Modify API Routes
+
+### API Auth - Profile
+# Modify app/Interfaces/AuthRepositoryInterface.php
+# Modify app/Repositories/AuthRepository.php
+# Modify UserResource
+# Modify AuthController
+# Modify API Routes
