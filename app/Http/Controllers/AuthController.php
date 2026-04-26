@@ -54,4 +54,15 @@ class AuthController extends Controller
             return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
         }
     }
+
+    public function logout()
+    {
+        try {
+            $user = $this->authRepository->logout();
+
+            return ResponseHelper::jsonResponse(true, 'Logout successfully.', new UserResource($user), 200);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
+    }
 }

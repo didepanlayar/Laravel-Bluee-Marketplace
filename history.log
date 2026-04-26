@@ -589,3 +589,9 @@ Output: "redis-works"
 # Modify UserResource
 # Modify AuthController
 # Modify API Routes
+
+### API Auth - Logout
+# Modify app/Interfaces/AuthRepositoryInterface.php
+# Modify app/Repositories/AuthRepository.php
+# Modify AuthController
+# Modify API Routes

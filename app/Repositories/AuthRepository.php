@@ -85,4 +85,26 @@ class AuthRepository implements AuthRepositoryInterface
             throw new Exception($e->getMessage());
         }
     }
+
+    public function logout()
+    {
+        DB::beginTransaction();
+
+        try {
+            if (!Auth::check()) {
+                throw new \Exception('Unauthorized');
+            }
+
+            $user = Auth::user();
+            $user->tokens()->delete();
+
+            DB::commit();
+
+            return $user;
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            throw new Exception($e->getMessage());
+        }
+    }
 }

@@ -9,4 +9,6 @@ interface AuthRepositoryInterface
     public function login(array $data);
 
     public function profile();
+
+    public function logout();
 }
