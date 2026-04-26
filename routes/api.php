@@ -71,3 +71,4 @@ Route::get('/store', [StoreController::class, 'index']);
 Route::get('/store/{store}', [StoreController::class, 'show']);
 
 Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);

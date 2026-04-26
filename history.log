@@ -574,3 +574,11 @@ Output: "redis-works"
 # Create AuthController
 - php artisan make:controller AuthController
 # Modify API Routes
+
+### API Auth - Login
+# Modify app/Interfaces/AuthRepositoryInterface.php
+# Modify app/Repositories/AuthRepository.php
+# Create LoginStoreRequest
+- php artisan make:request LoginStoreRequest
+# Modify AuthController
+# Modify API Routes

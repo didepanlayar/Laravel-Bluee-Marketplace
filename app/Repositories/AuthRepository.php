@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Interfaces\AuthRepositoryInterface;
 use App\Models\User;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AuthRepository implements AuthRepositoryInterface
@@ -29,6 +30,28 @@ class AuthRepository implements AuthRepositoryInterface
                 ]);
             }
 
+            $user->token = $user->createToken('auth_token')->plainTextToken;
+
+            DB::commit();
+
+            return $user;
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function login(array $data)
+    {
+        DB::beginTransaction();
+
+        try {
+            if (!Auth::guard('web')->attempt($data)) {
+                throw new \Exception('Unauthorized');
+            }
+
+            $user = Auth::user();
             $user->token = $user->createToken('auth_token')->plainTextToken;
 
             DB::commit();
