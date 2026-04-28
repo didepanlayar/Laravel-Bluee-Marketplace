@@ -595,3 +595,12 @@ Output: "redis-works"
 # Modify app/Repositories/AuthRepository.php
 # Modify AuthController
 # Modify API Routes
+
+### Install Telespoce
+- composer require laravel/telescope --dev
+- php artisan telescope:install
+# Delete "App\Providers\TelescopeServiceProvider::class," on provider.php
+# Modify AppServiceProvider.php
+# Modify composer.json
+# Run migrate
+- php artisan migrate
